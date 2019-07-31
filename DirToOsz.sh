@@ -8,7 +8,7 @@ count=0;
 countFolder=0;
 read -p "|| c$count-i$isOk-? --- Please write path to the directori beatmaps: " beatmapsPath_var;
 mkdir ~/osuLazerBeatmap;
-for dir in ~/Documents/CMDsh/*/ # list directories in the form "/tmp/dirname/"
+for dir in ~/Music/Songs/*/ # list directories in the form "/tmp/dirname/"
 do
     countFolder=$((countFolder+1))
     dir=${dir%*/}; #remove the trailing "/" #res: /home/arutosio/Documents/CMDsh/20060 Little Non - Hanamaru Sensation (TV Size)
