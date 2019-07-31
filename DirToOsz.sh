@@ -8,19 +8,13 @@ count=0;
 countFolder=0;
 read -p "|| c$count-i$isOk-? --- Please write path to the directori beatmaps: " beatmapsPath_var;
 mkdir ~/osuLazerBeatmap;
-for dir in ~/Documents/CMDsh/*/     # list directories in the form "/tmp/dirname/"
+for dir in ~/Documents/CMDsh/*/ # list directories in the form "/tmp/dirname/"
 do
-    countFolder=$((countFolder+1));
-    #echo $dir; #res: /home/arutosio/Documents/CMDsh/20060 Little Non - Hanamaru Sensation (TV Size)/
+    countFolder=$((countFolder+1))
     dir=${dir%*/}; #remove the trailing "/" #res: /home/arutosio/Documents/CMDsh/20060 Little Non - Hanamaru Sensation (TV Size)
-    nameFolder=${dir##*/}; #print everything after the final "/" #res: 20060 Little Non - Hanamaru Sensation (TV Size)
-    pathNameFolder="$(echo $nameFolder | sed 's/ /\\ /g')"; #res: 20060\ Little\ Non\ -\ Hanamaru\ Sensation\ (TV\ Size)
-    pathNameFolder="$(echo $pathNameFolder | sed 's/(/\\(/g')"; #res: 20060\ Little\ Non\ -\ Hanamaru\ Sensation\ \(TV\ Size)
-    pathNameFolder="$(echo $pathNameFolder | sed 's/)/\\)/g')"; #res: 20060\ Little\ Non\ -\ Hanamaru\ Sensation\ \(TV\ Size\)
-    echo "NumFolder: $countFolder  Creating... \"$nameFolder.osz\"";    # print everything after the final "/"
-    echo "zip -r -j -9 ~/osuLazerBeatmap/$pathNameFolder.zip $pathNameFolder/*"; #res: >
-    #zip -r -j -9 ~/osuLazerBeatmap/20060\ Little\ Non\ -\ Hanamaru\ Sensation\ \(TV\ Size\).zip 20060\ Little\ Non\ -\ Hanamaru\ Sensation\ \(TV\ Size\)/*
-    zip -r -j -9 ~/osuLazerBeatmap/"$nameFolder".zip "$dir"/*;
+    nameFolder=${dir##*/} #print everything after the final "/" #res: 20060 Little Non - Hanamaru Sensation (TV Size)
+    echo "NumFolder: $countFolder  Creating... \"$nameFolder.osz\"";
+    zip -r -j -9 ~/osuLazerBeatmap/"$nameFolder".zip "$dir"/*
     echo '------------------------------';
 done
 : '
