@@ -14,7 +14,7 @@ do
     dir=${dir%*/}; #remove the trailing "/" #res: /home/arutosio/Documents/CMDsh/20060 Little Non - Hanamaru Sensation (TV Size)
     nameFolder=${dir##*/} #print everything after the final "/" #res: 20060 Little Non - Hanamaru Sensation (TV Size)
     echo "NumFolder: $countFolder  Creating... \"$nameFolder.osz\"";
-    zip -r -j -9 ~/osuLazerBeatmap/"$nameFolder".zip "$dir"/*
+    zip -r -j -9 ~/osuLazerBeatmap/"$nameFolder".osz "$dir"/*
     echo '------------------------------';
 done
 : '
